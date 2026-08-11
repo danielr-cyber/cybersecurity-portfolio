@@ -72,3 +72,35 @@ The investigation relied on multiple telemetry sources to correlate endpoint, ne
 | **SMB Telemetry** | Investigation of communication between the infected workstation and internal file server |
 | **OSINT / Threat Intelligence** | Validation and contextualization of suspicious domains, files, hashes, and malware activity |
 | **MITRE ATT&CK** | Mapping observed attacker behavior to standardized adversary techniques |
+
+## Executive Findings
+
+The investigation identified a multi-stage attack beginning with the compromise of a public-facing Joomla web server and culminating in a Cerber ransomware infection affecting internal systems.
+
+### Initial Compromise
+
+- The attacker originated from `23.22.63.114`.
+- Automated reconnaissance activity associated with Acunetix was observed against the public-facing web server.
+- The attacker conducted repeated brute-force attempts against the Joomla administrator interface.
+- A valid administrator password was successfully identified and used to gain access.
+- The compromised website was subsequently defaced with `poisonivy-is-coming-for-you-batman.jpeg`.
+- Malicious file activity was identified on the compromised web server, including `3791.exe`.
+
+### Ransomware Infection
+
+Approximately two weeks later, ransomware activity was identified on workstation `we8105desk` (`192.168.250.100`).
+
+- A USB device named `MIRANDA_PRI` was connected to the workstation.
+- A malicious VBScript was executed through `wscript.exe`.
+- The script downloaded `mhtr.jpg` from the malicious domain `solidaritedeproximite.org`.
+- `mhtr.jpg` used a benign-looking `.jpg` extension to conceal the Cerber payload through steganography.
+- The ransomware subsequently executed `121214.tmp`.
+- Approximately **401 `.txt` files** were encrypted on the workstation.
+- The workstation communicated with file server `192.168.250.20` over SMB.
+- Approximately **257 PDF files** were encrypted on the file server.
+
+### Overall Assessment
+
+The investigation confirmed unauthorized access to the public-facing web application, malicious activity on the compromised server, and a subsequent ransomware infection affecting internal systems.
+
+The combined evidence demonstrated activity across multiple stages of the attack lifecycle, from reconnaissance and initial access through execution, payload delivery, lateral communication, and data encryption for impact.
