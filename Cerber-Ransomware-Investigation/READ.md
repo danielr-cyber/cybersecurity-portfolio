@@ -57,3 +57,18 @@ The investigation focused on answering the following questions:
 - How many files were affected?
 - What indicators of compromise could be extracted for future detection and threat hunting?
 - Which MITRE ATT&CK techniques were represented by the observed activity?
+
+## Tools & Data Sources
+
+The investigation relied on multiple telemetry sources to correlate endpoint, network, and security-alert data.
+
+| Tool / Data Source | Purpose |
+|---|---|
+| **Splunk** | Centralized log analysis, correlation, searching, and timeline reconstruction |
+| **Sysmon** | Endpoint process creation, file activity, and process lineage |
+| **Suricata** | Network intrusion detection and identification of suspicious traffic |
+| **DNS Telemetry** | Identification of suspicious domain queries and correlation with affected hosts |
+| **HTTP Telemetry** | Investigation of web requests, downloaded files, source/destination IPs, and timestamps |
+| **SMB Telemetry** | Investigation of communication between the infected workstation and internal file server |
+| **OSINT / Threat Intelligence** | Validation and contextualization of suspicious domains, files, hashes, and malware activity |
+| **MITRE ATT&CK** | Mapping observed attacker behavior to standardized adversary techniques |
