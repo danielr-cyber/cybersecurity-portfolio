@@ -12,3 +12,32 @@ The investigation focused on reconstructing the attack timeline, identifying aff
 > **Environment:** Security Operations Lab  
 > **Primary SIEM:** Splunk  
 > **Malware:** Cerber Ransomware
+
+## Scenario
+
+The investigation began with suspicious activity against a public-facing Joomla web server hosting `imreallynotbatman.com`.
+
+On August 10, 2016, an external attacker performed automated reconnaissance and repeated login attempts against the Joomla administrator interface. The attacker successfully obtained valid administrator credentials and gained access to the web application.
+
+The compromised server was subsequently associated with malicious file activity and website defacement.
+
+Approximately two weeks later, on August 24, 2016, a Cerber ransomware infection was identified on an internal workstation. The infection began after a USB device was connected and a malicious VBScript was executed. The script downloaded `mhtr.jpg`, an image file containing the ransomware payload through steganography.
+
+The ransomware subsequently executed `121214.tmp`, encrypted files on the workstation, and communicated with an internal file server over SMB. Additional files on the file server were encrypted.
+
+The investigation therefore covers two major phases of the incident:
+
+1. **Initial compromise — August 10, 2016**
+   - Reconnaissance
+   - Joomla brute-force attack
+   - Valid account compromise
+   - Malicious file activity
+   - Website defacement
+
+2. **Ransomware deployment — August 24, 2016**
+   - USB execution
+   - VBScript execution
+   - Malicious payload download
+   - Cerber execution
+   - File encryption
+   - SMB communication with the file server
