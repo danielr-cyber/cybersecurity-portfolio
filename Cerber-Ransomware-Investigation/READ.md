@@ -41,3 +41,19 @@ The investigation therefore covers two major phases of the incident:
    - Cerber execution
    - File encryption
    - SMB communication with the file server
+
+## Analyst Objectives
+
+The primary objective of the investigation was to reconstruct the attack lifecycle, determine the scope and impact of the compromise, and identify indicators that could support containment and remediation.
+
+The investigation focused on answering the following questions:
+
+- How did the attacker initially gain access to the public-facing web server?
+- Which accounts, systems, and infrastructure were involved in the initial compromise?
+- What malicious files and activity were associated with the compromised web server?
+- How did the Cerber ransomware infection begin on the internal workstation?
+- Which systems were affected by the ransomware?
+- How did the ransomware move from the workstation to the internal file server?
+- How many files were affected?
+- What indicators of compromise could be extracted for future detection and threat hunting?
+- Which MITRE ATT&CK techniques were represented by the observed activity?
