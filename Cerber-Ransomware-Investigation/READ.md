@@ -122,29 +122,18 @@ A high-level view of the attack progression:
 
 ## Indicators of Compromise (IOCs)
 
-### Attacker Infrastructure
+The investigation identified indicators associated with the initial web compromise, Cerber ransomware infection, and affected internal systems.
 
-| Indicator | Type | Description |
-|---|---|---|
-| `23.22.63.114` | IP Address | External attacker IP associated with brute-force activity |
-| `40.80.148.42` | IP Address | Staging infrastructure associated with the attack |
-| `imreallynotbatman.com` | Domain | Compromised Joomla web application targeted during initial access |
-| `solidaritedeproximite.org` | Domain | Malicious domain associated with the Cerber infection |
+Key indicators included:
 
-### Malware
+* **Attacker IP:** `23.22.63.114`
+* **Staging IP:** `40.80.148.42`
+* **Target Domain:** `imreallynotbatman.com`
+* **Malicious Domain:** `solidaritedeproximite.org`
+* **Malicious Files:** `3791.exe`, `mhtr.jpg`, `121214.tmp`
+* **Defacement File:** `poisonivy-is-coming-for-you-batman.jpeg`
+* **Affected Workstation:** `we8105desk` (`192.168.250.100`)
+* **Affected File Server:** `192.168.250.20`
 
-| Indicator | Type | Description |
-|---|---|---|
-| `3791.exe` | File | Malicious executable uploaded to the compromised web server |
-| `AAE3F5A29935E6ABCC2C2754D12A9AF0` | MD5 | Hash associated with `3791.exe` |
-| `MirandaTateScreensaver.scr.exe` | File | Malware sample identified during threat intelligence research |
-| `9709473ab351387aab9e816eff3910b9f28a7a70202e250ed46dba8f820f34a8` | SHA256 | Hash associated with `MirandaTateScreensaver.scr.exe` |
-| `mhtr.jpg` | File | Image file containing the Cerber payload through steganography |
-| `121214.tmp` | File | Temporary payload launched during the ransomware infection |
+For the complete IOC reference, including hashes, affected systems, and investigative relationships, see **[IOCs](iocs.md)**.
 
-### Affected Systems
-
-| System | IP Address | Role |
-|---|---|---|
-| `we8105desk` | `192.168.250.100` | Infected workstation |
-| File Server | `192.168.250.20` | Server affected by ransomware encryption |
