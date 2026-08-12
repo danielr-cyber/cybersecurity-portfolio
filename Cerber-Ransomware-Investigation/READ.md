@@ -125,3 +125,32 @@ All timestamps are represented in UTC.
 | **2016-08-24 16:48–17:15** | Cerber encrypted files on workstation `192.168.250.100`. | Data encrypted for impact. |
 | **2016-08-24 17:15** | Workstation communicated with file server `192.168.250.20` over SMB. | Indicates ransomware-related activity involving an internal file server. |
 | **2016-08-24 17:15** | Approximately 257 PDF files were identified as encrypted on the file server. | Demonstrates additional impact beyond the original workstation. |
+
+## Indicators of Compromise (IOCs)
+
+### Attacker Infrastructure
+
+| Indicator | Type | Description |
+|---|---|---|
+| `23.22.63.114` | IP Address | External attacker IP associated with brute-force activity |
+| `40.80.148.42` | IP Address | Staging infrastructure associated with the attack |
+| `imreallynotbatman.com` | Domain | Compromised Joomla web application targeted during initial access |
+| `solidaritedeproximite.org` | Domain | Malicious domain associated with the Cerber infection |
+
+### Malware
+
+| Indicator | Type | Description |
+|---|---|---|
+| `3791.exe` | File | Malicious executable uploaded to the compromised web server |
+| `AAE3F5A29935E6ABCC2C2754D12A9AF0` | MD5 | Hash associated with `3791.exe` |
+| `MirandaTateScreensaver.scr.exe` | File | Malware sample identified during threat intelligence research |
+| `9709473ab351387aab9e816eff3910b9f28a7a70202e250ed46dba8f820f34a8` | SHA256 | Hash associated with `MirandaTateScreensaver.scr.exe` |
+| `mhtr.jpg` | File | Image file containing the Cerber payload through steganography |
+| `121214.tmp` | File | Temporary payload launched during the ransomware infection |
+
+### Affected Systems
+
+| System | IP Address | Role |
+|---|---|---|
+| `we8105desk` | `192.168.250.100` | Infected workstation |
+| File Server | `192.168.250.20` | Server affected by ransomware encryption |
