@@ -104,3 +104,24 @@ Approximately two weeks later, ransomware activity was identified on workstation
 The investigation confirmed unauthorized access to the public-facing web application, malicious activity on the compromised server, and a subsequent ransomware infection affecting internal systems.
 
 The combined evidence demonstrated activity across multiple stages of the attack lifecycle, from reconnaissance and initial access through execution, payload delivery, lateral communication, and data encryption for impact.
+
+## Investigation Timeline
+
+All timestamps are represented in UTC.
+
+| Time | Event | Significance |
+|---|---|---|
+| **2016-08-10 21:45:21** | Attacker IP `23.22.63.114` began repeated login attempts against the Joomla administrator interface for `imreallynotbatman.com`. | Beginning of the observed initial access activity. |
+| **2016-08-10** | Automated reconnaissance associated with Acunetix was observed against the web server. | Indicates pre-compromise reconnaissance and vulnerability discovery. |
+| **2016-08-10** | The attacker attempted hundreds of passwords, including `12345678`. | Evidence of a brute-force attack against the administrator account. |
+| **2016-08-10** | Password `batman` was successfully used to authenticate to the Joomla administrator account. | Successful use of valid credentials established unauthorized access. |
+| **2016-08-10 21:52:47** | `3791.exe` was uploaded to the compromised web server. | Indicates malicious file transfer following web application compromise. |
+| **2016-08-10** | The compromised website was defaced with `poisonivy-is-coming-for-you-batman.jpeg`. | Demonstrates attacker control of the public-facing application and potential reputational impact. |
+| **2016-08-24 16:42** | USB device `MIRANDA_PRI` was connected to workstation `we8105desk`. | Preceded the observed Cerber infection activity. |
+| **2016-08-24 16:43** | A malicious VBScript was executed through `wscript.exe`. | Initiated the ransomware infection chain. |
+| **2016-08-24 16:48:12** | HTTP activity associated with the Cerber payload was observed. | Indicates payload delivery during the infection sequence. |
+| **2016-08-24 16:48:13** | `mhtr.jpg` was downloaded from `solidaritedeproximite.org`. | Malicious payload disguised as an image; associated with steganography. |
+| **2016-08-24 16:48** | `121214.tmp` executed on the workstation. | Ransomware execution followed payload delivery. |
+| **2016-08-24 16:48–17:15** | Cerber encrypted files on workstation `192.168.250.100`. | Data encrypted for impact. |
+| **2016-08-24 17:15** | Workstation communicated with file server `192.168.250.20` over SMB. | Indicates ransomware-related activity involving an internal file server. |
+| **2016-08-24 17:15** | Approximately 257 PDF files were identified as encrypted on the file server. | Demonstrates additional impact beyond the original workstation. |
